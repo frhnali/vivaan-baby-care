@@ -8,174 +8,143 @@
   <title>Vivaan Baby Care</title>
 
   <link rel="stylesheet" href="style.css">
+
+  <!-- Icons -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
 </head>
 
 <body>
 
-  <!-- Navbar -->
+  <!-- TOP NAVBAR -->
 
-  <nav class="navbar">
+  <nav class="mobile-navbar">
 
-    <div class="logo">
-      <img src="vivaan.png" alt="Vivaan Logo">
+    <div class="top-left">
+
+      <img src="vivaan.png" class="logo">
+
     </div>
 
-    <div class="nav-right">
+    <div class="top-icons">
 
-      <input type="text" placeholder="Search products...">
+      <i class="fa-solid fa-magnifying-glass"></i>
 
-      <ul class="nav-links">
-        <li>Home</li>
-        <li>Products</li>
-        <li>Toys</li>
-        <li>Cart 🛒</li>
-      </ul>
+      <i class="fa-regular fa-heart"></i>
+
+      <i class="fa-solid fa-bag-shopping"></i>
 
     </div>
 
   </nav>
 
-  <!-- Hero Section -->
+  <!-- SEARCH -->
 
-  <section class="hero">
+  <div class="search-box">
 
-    <div class="hero-overlay">
+    <input
+      type="text"
+      placeholder="Search baby products..."
+    >
 
-      <div class="hero-text">
+  </div>
 
-        <h2>Everything Your Little One Needs 👶</h2>
+  <!-- CATEGORY PILLS -->
 
-        <p>
-          Dresses, toys, accessories and more for your baby.
-        </p>
+  <section class="pills">
 
-        <button>Shop Now</button>
+    <div class="pill">🔥 Crazy Deals</div>
 
-      </div>
+    <div class="pill">⭐ Top Brands</div>
+
+    <div class="pill">🧸 Toys</div>
+
+    <div class="pill">👕 Dresses</div>
+
+    <div class="pill">🎁 Accessories</div>
+
+  </section>
+
+  <!-- OFFER BANNER -->
+
+  <section class="offer-banner">
+
+    <div class="offer-left">
+
+      <h3>Free Shipping</h3>
+
+      <p>On your first order</p>
+
+    </div>
+
+    <div class="offer-right">
+
+      <h3>₹500 OFF</h3>
+
+      <p>VIVAAN500</p>
 
     </div>
 
   </section>
 
-  <!-- Categories -->
+  <!-- HERO BANNER -->
 
-  <section class="categories">
+  <section class="hero-banner">
 
-    <h2>Shop By Category</h2>
-
-    <div class="category-container">
-
-      <div class="category-card">
-        <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?q=80&w=1000">
-        <p>Baby Dresses</p>
-      </div>
-
-      <div class="category-card">
-        <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=1000">
-        <p>Toys</p>
-      </div>
-
-      <div class="category-card">
-        <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?q=80&w=1000">
-        <p>Footwear</p>
-      </div>
-
-      <div class="category-card">
-        <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?q=80&w=1000">
-        <p>Accessories</p>
-      </div>
-
-    </div>
+    <img
+      src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?q=80&w=1600"
+    >
 
   </section>
 
-  <!-- Products -->
+  <!-- PRODUCTS -->
 
-  <section class="products">
+  <section class="products-section">
 
     <h2>Featured Products</h2>
 
     <div class="product-container">
 
-      <!-- Product 1 -->
-
-      <a href="product.html" class="product-link">
-
-        <div class="product-card">
-
-          <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?q=80&w=1000">
-
-          <h3>Baby Pink Dress</h3>
-
-          <p class="price">₹799</p>
-
-          <button>Add To Cart</button>
-
-        </div>
-
-      </a>
-
-      <!-- Product 2 -->
-
-      <div class="product-card">
-
-        <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=1000">
-
-        <h3>Soft Teddy Bear</h3>
-
-        <p class="price">₹499</p>
-
-        <button>Add To Cart</button>
-
-      </div>
-
-      <!-- Product 3 -->
-
-      <div class="product-card">
-
-        <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?q=80&w=1000">
-
-        <h3>Kids Shoes</h3>
-
-        <p class="price">₹999</p>
-
-        <button>Add To Cart</button>
-
-      </div>
-
-      <!-- Product 4 -->
-
-      <div class="product-card">
-
-        <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?q=80&w=1000">
-
-        <h3>Baby Toys Set</h3>
-
-        <p class="price">₹699</p>
-
-        <button>Add To Cart</button>
-
-      </div>
-
     </div>
 
   </section>
 
-  <!-- Footer -->
+  <!-- BOTTOM NAVIGATION -->
 
-  <footer>
+  <div class="bottom-nav">
 
-    <h3>Vivaan Baby Care</h3>
+    <div class="bottom-item">
+      <i class="fa-solid fa-house"></i>
+      <p>Home</p>
+    </div>
 
-    <p>
-      Cute collections for your little ones ❤️
-    </p>
+    <div class="bottom-item">
+      <i class="fa-solid fa-list"></i>
+      <p>Categories</p>
+    </div>
 
-  </footer>
+    <div class="bottom-item">
+      <i class="fa-solid fa-heart"></i>
+      <p>Wishlist</p>
+    </div>
+
+    <div class="bottom-item">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <p>Cart</p>
+    </div>
+
+  </div>
+
+  <!-- SUPABASE -->
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
+
 </html>
