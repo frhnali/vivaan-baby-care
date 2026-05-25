@@ -10,6 +10,8 @@ supabase.createClient(
   supabaseKey
 );
 
+// LOAD PRODUCTS
+
 async function loadProducts() {
 
   const { data, error } =
@@ -19,6 +21,61 @@ async function loadProducts() {
 
   console.log(data);
 
+  const productContainer =
+  document.querySelector(".product-container");
+
+  productContainer.innerHTML = "";
+
+  data.forEach(product => {
+
+    productContainer.innerHTML += `
+
+      <div class="product-card">
+
+        <img src="${product.image}">
+
+        <h3>${product.name}</h3>
+
+        <p class="price">₹${product.price}</p>
+
+        <p>${product.description}</p>
+
+        <button onclick="addToCart('${product.name}', '${product.price}')">
+          Add To Cart
+        </button>
+
+      </div>
+
+    `;
+
+  });
+
 }
 
 loadProducts();
+
+
+// ADD TO CART FUNCTION
+
+function addToCart(name, price){
+
+  let cart =
+  JSON.parse(
+    localStorage.getItem("cart")
+  ) || [];
+
+  cart.push({
+    name:name,
+    price:price
+  });
+
+  localStorage.setItem(
+    "cart",
+    JSON.stringify(cart)
+  );
+
+  alert(name + " added to cart 😄");
+
+  console.log(cart);
+
+}
