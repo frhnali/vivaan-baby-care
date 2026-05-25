@@ -1,150 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>Vivaan Baby Care</title>
-
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Icons -->
-
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>VIVAAN BABY CARE - Premium Baby Fashion & Accessories</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vivaanPink: '#FF708A',
+            vivaanMint: '#9ED2C6',
+            vivaanPeach: '#FFD3B6',
+            vivaanButter: '#FFFDF9',
+            vivaanDark: '#2C3A47',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
+<body class="bg-gray-100 flex justify-center">
 
-<body>
+  <!-- Mobile Screen Container -->
+  <div class="w-full max-w-md bg-white min-h-screen relative flex flex-col shadow-2xl overflow-hidden bottom-nav-pad">
+    
+    <!-- Top Navbar with Logo -->
+    <header class="sticky top-0 bg-white z-40 px-4 py-3 border-b border-gray-50 flex items-center justify-between shadow-sm">
+      <div class="flex items-center space-x-2">
+        <!-- Cute logo icon -->
+        <div class="bg-vivaanPink bg-opacity-10 p-1.5 rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-vivaanPink" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-extrabold tracking-wider text-vivaanDark font-mono leading-none">VIVAAN</span>
+          <span class="text-[9px] font-bold text-vivaanPink tracking-widest leading-none">BABY CARE</span>
+        </div>
+      </div>
+      
+      <!-- Icons (Wishlist & Cart) -->
+      <div class="flex items-center space-x-4">
+        <a href="wishlist.html" class="relative text-vivaanDark active-scale p-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>
+          <span class="absolute -top-1 -right-1 bg-vivaanPink text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full wishlist-badge hidden">0</span>
+        </a>
+        <a href="cart.html" class="relative text-vivaanDark active-scale p-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+          <span class="absolute -top-1 -right-1 bg-vivaanPink text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full cart-badge hidden">0</span>
+        </a>
+      </div>
+    </header>
 
-  <!-- TOP NAVBAR -->
-
-  <nav class="mobile-navbar">
-
-    <div class="top-left">
-
-      <img src="vivaan.png" class="logo">
-
+    <!-- App Search bar -->
+    <div class="px-4 pt-3 pb-1 bg-white">
+      <div class="relative flex items-center">
+        <span class="absolute left-3 text-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </span>
+        <input type="text" placeholder="Search premium rompers, frocks, accessories..." 
+               class="app-search-input w-full pl-10 pr-4 py-2.5 bg-gray-50 border-0 rounded-2xl text-xs text-vivaanDark focus:outline-none focus:ring-2 focus:ring-vivaanPink focus:bg-white transition-all shadow-sm">
+      </div>
     </div>
 
-    <div class="top-icons">
-
-      <i class="fa-solid fa-magnifying-glass"></i>
-
-      <i class="fa-regular fa-heart"></i>
-
-      <i class="fa-solid fa-bag-shopping"></i>
-
+    <!-- Scrollable Categories Chips -->
+    <div class="bg-white py-3 border-b border-gray-100">
+      <div class="flex space-x-3 overflow-x-auto px-4 scrollbar-none">
+        <button onclick="window.location.href='products.html?category=all'" class="flex-shrink-0 px-4 py-1.5 bg-vivaanPink bg-opacity-5 rounded-full text-xs font-semibold text-vivaanPink active-scale">
+          ✨ All Items
+        </button>
+        <button onclick="window.location.href='products.html?category=rompers-onesies'" class="flex-shrink-0 px-4 py-1.5 bg-vivaanMint bg-opacity-10 rounded-full text-xs font-semibold text-vivaanDark active-scale">
+          🧸 Rompers
+        </button>
+        <button onclick="window.location.href='products.html?category=frocks-dresses'" class="flex-shrink-0 px-4 py-1.5 bg-pink-100 bg-opacity-70 rounded-full text-xs font-semibold text-vivaanDark active-scale">
+          👗 Dresses
+        </button>
+        <button onclick="window.location.href='products.html?category=sets-suits'" class="flex-shrink-0 px-4 py-1.5 bg-yellow-100 bg-opacity-70 rounded-full text-xs font-semibold text-vivaanDark active-scale">
+          👚 Sets
+        </button>
+        <button onclick="window.location.href='products.html?category=accessories'" class="flex-shrink-0 px-4 py-1.5 bg-purple-100 bg-opacity-70 rounded-full text-xs font-semibold text-vivaanDark active-scale">
+          👒 Accessories
+        </button>
+        <button onclick="window.location.href='products.html?category=toys'" class="flex-shrink-0 px-4 py-1.5 bg-blue-100 bg-opacity-70 rounded-full text-xs font-semibold text-vivaanDark active-scale">
+          🎠 Toys
+        </button>
+      </div>
     </div>
 
-  </nav>
+    <!-- MAIN BODY SCROLL -->
+    <main class="flex-1 overflow-y-auto">
+      
+      <!-- Promotional Offer Banner Slider (Horizontal Scroll) -->
+      <section class="mt-4 px-4">
+        <div class="flex space-x-4 overflow-x-auto scrollbar-none snap-x snap-mandatory">
+          
+          <!-- Banner 1 -->
+          <div class="flex-shrink-0 w-full snap-start relative rounded-3xl overflow-hidden banner-aspect bg-gradient-to-r from-[#FF9A9E] to-[#FECFEF] p-5 flex flex-col justify-between text-white active-scale shadow-md"
+               onclick="window.location.href='products.html?category=rompers-onesies'">
+            <div class="flex flex-col">
+              <span class="bg-white bg-opacity-20 text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded-full self-start">NEWBORN COMFORT</span>
+              <h2 class="text-xl font-black mt-2 leading-tight">FLAT 50% OFF</h2>
+              <p class="text-[11px] opacity-90 font-medium">On premium organic rompers & onesies</p>
+            </div>
+            <div class="flex justify-between items-center mt-2">
+              <span class="text-[10px] font-bold border-b-2 border-white pb-0.5">Shop Collection</span>
+              <span class="text-xs bg-white text-vivaanPink font-extrabold px-3 py-1 rounded-xl shadow-md">Limited Time</span>
+            </div>
+          </div>
 
-  <!-- SEARCH -->
+          <!-- Banner 2 -->
+          <div class="flex-shrink-0 w-full snap-start relative rounded-3xl overflow-hidden banner-aspect bg-gradient-to-r from-[#A1C4FD] to-[#C2E9FB] p-5 flex flex-col justify-between text-vivaanDark active-scale shadow-md"
+               onclick="window.location.href='products.html?category=toys'">
+            <div class="flex flex-col">
+              <span class="bg-vivaanDark bg-opacity-5 text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded-full self-start">MONTESSORI LEARNING</span>
+              <h2 class="text-xl font-black mt-2 leading-tight text-vivaanDark">BUY 2 GET 1 FREE</h2>
+              <p class="text-[11px] opacity-80 font-semibold">On premium, chemical-free wooden toys</p>
+            </div>
+            <div class="flex justify-between items-center mt-2">
+              <span class="text-[10px] font-bold border-b-2 border-vivaanDark pb-0.5">View Toys</span>
+              <span class="text-xs bg-vivaanDark text-white font-extrabold px-3 py-1 rounded-xl shadow-md">Exclusive</span>
+            </div>
+          </div>
 
-  <div class="search-box">
+        </div>
+        <!-- Dot Indicators -->
+        <div class="flex justify-center space-x-1.5 mt-2.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-vivaanPink"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
+        </div>
+      </section>
 
-    <input
-      type="text"
-      placeholder="Search baby products..."
-    >
+      <!-- Trust Badges Section -->
+      <section class="mt-5 px-4">
+        <div class="grid grid-cols-3 gap-3 bg-white p-3 rounded-2xl shadow-sm border border-pink-50">
+          <div class="flex flex-col items-center text-center space-y-1">
+            <div class="bg-pink-50 p-2 rounded-full text-vivaanPink">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <span class="text-[9px] font-bold text-vivaanDark leading-tight">100% Skin Safe</span>
+          </div>
+          <div class="flex flex-col items-center text-center space-y-1 border-x border-gray-100">
+            <div class="bg-vivaanMint bg-opacity-10 p-2 rounded-full text-vivaanMint">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M14 12a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <span class="text-[9px] font-bold text-vivaanDark leading-tight">Eco Friendly</span>
+          </div>
+          <div class="flex flex-col items-center text-center space-y-1">
+            <div class="bg-yellow-50 p-2 rounded-full text-yellow-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              </svg>
+            </div>
+            <span class="text-[9px] font-bold text-vivaanDark leading-tight">Free Shipping</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Products Grid (Scrollable dynamic loading) -->
+      <section class="mt-6 px-4">
+        <div class="flex justify-between items-center mb-3">
+          <div class="flex flex-col">
+            <h3 class="text-sm font-extrabold text-vivaanDark uppercase tracking-wider leading-none">Aesthetic Best Sellers</h3>
+            <span class="text-[10px] text-gray-400 font-medium">Curated with love for your little ones</span>
+          </div>
+          <button onclick="window.location.href='products.html?category=all'" class="text-[11px] font-bold text-vivaanPink active-scale bg-pink-50 px-3 py-1 rounded-full">
+            See All
+          </button>
+        </div>
+        
+        <!-- Grid Items (Initially Loaded Dynamically) -->
+        <div id="featured-products" class="grid grid-cols-2 gap-4">
+          <!-- Skeleton Loading -->
+          <div class="bg-white rounded-2xl p-2 shadow-sm border border-gray-50 animate-pulse-slow">
+            <div class="bg-gray-100 rounded-xl h-44 mb-2"></div>
+            <div class="h-3 bg-gray-100 rounded mb-1"></div>
+            <div class="h-3 bg-gray-100 rounded w-1/2"></div>
+          </div>
+          <div class="bg-white rounded-2xl p-2 shadow-sm border border-gray-50 animate-pulse-slow">
+            <div class="bg-gray-100 rounded-xl h-44 mb-2"></div>
+            <div class="h-3 bg-gray-100 rounded mb-1"></div>
+            <div class="h-3 bg-gray-100 rounded w-1/2"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Secondary Promo Banner -->
+      <section class="mt-6 px-4">
+        <div class="bg-vivaanMint bg-opacity-20 rounded-3xl p-5 flex justify-between items-center relative overflow-hidden active-scale shadow-sm"
+             onclick="window.location.href='products.html?category=accessories'">
+          <div class="flex flex-col z-10">
+            <span class="text-vivaanMint font-extrabold text-[10px] uppercase tracking-wider">COTTON ACCESSORIES</span>
+            <h4 class="text-sm font-black text-vivaanDark mt-1 leading-tight">Bonnet Hats & Booties</h4>
+            <p class="text-[10px] text-gray-500 font-medium mt-0.5">Handcrafted warmth from ₹399</p>
+          </div>
+          <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-xl shadow-md z-10">
+            👒
+          </div>
+          <!-- Decorative Background circle -->
+          <div class="absolute -right-5 -bottom-5 w-24 h-24 bg-vivaanMint bg-opacity-30 rounded-full"></div>
+        </div>
+      </section>
+
+      <!-- Trending Products Section -->
+      <section class="mt-6 px-4 pb-8">
+        <div class="flex justify-between items-center mb-3">
+          <div class="flex flex-col">
+            <h3 class="text-sm font-extrabold text-vivaanDark uppercase tracking-wider leading-none">Trending Now</h3>
+            <span class="text-[10px] text-gray-400 font-medium">What other parents are buying</span>
+          </div>
+        </div>
+        
+        <div id="trending-products" class="grid grid-cols-2 gap-4">
+          <!-- Skeleton Loading -->
+          <div class="bg-white rounded-2xl p-2 shadow-sm border border-gray-50 animate-pulse-slow">
+            <div class="bg-gray-100 rounded-xl h-44 mb-2"></div>
+            <div class="h-3 bg-gray-100 rounded mb-1"></div>
+            <div class="h-3 bg-gray-100 rounded w-1/2"></div>
+          </div>
+          <div class="bg-white rounded-2xl p-2 shadow-sm border border-gray-50 animate-pulse-slow">
+            <div class="bg-gray-100 rounded-xl h-44 mb-2"></div>
+            <div class="h-3 bg-gray-100 rounded mb-1"></div>
+            <div class="h-3 bg-gray-100 rounded w-1/2"></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Fixed Navigation Bar -->
+    <footer class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white border-t border-gray-100 py-2.5 px-6 flex justify-between items-center z-50 shadow-nav">
+      <a href="index.html" class="flex flex-col items-center justify-center space-y-1 text-vivaanPink active-scale" id="nav-home">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+        </svg>
+        <span class="text-[9px] font-bold">Home</span>
+      </a>
+      <a href="categories.html" class="flex flex-col items-center justify-center space-y-1 text-gray-400 active-scale" id="nav-categories">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+        </svg>
+        <span class="text-[9px] font-bold">Categories</span>
+      </a>
+      <a href="wishlist.html" class="flex flex-col items-center justify-center space-y-1 text-gray-400 active-scale relative" id="nav-wishlist">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        </svg>
+        <span class="absolute -top-1 right-2 bg-vivaanPink text-white text-[8px] font-bold px-1 py-0.25 rounded-full wishlist-badge hidden">0</span>
+        <span class="text-[9px] font-bold">Wishlist</span>
+      </a>
+      <a href="cart.html" class="flex flex-col items-center justify-center space-y-1 text-gray-400 active-scale relative" id="nav-cart">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
+        <span class="absolute -top-1 right-1 bg-vivaanPink text-white text-[8px] font-bold px-1 py-0.25 rounded-full cart-badge hidden">0</span>
+        <span class="text-[9px] font-bold">Cart</span>
+      </a>
+    </footer>
 
   </div>
 
-  <!-- CATEGORY PILLS -->
+  <!-- Toast Element container -->
+  <div id="toast"></div>
 
-  <section class="pills">
-
-    <div class="pill">🔥 Crazy Deals</div>
-
-    <div class="pill">⭐ Top Brands</div>
-
-    <div class="pill">🧸 Toys</div>
-
-    <div class="pill">👕 Dresses</div>
-
-    <div class="pill">🎁 Accessories</div>
-
-  </section>
-
-  <!-- OFFER BANNER -->
-
-  <section class="offer-banner">
-
-    <div class="offer-left">
-
-      <h3>Free Shipping</h3>
-
-      <p>On your first order</p>
-
-    </div>
-
-    <div class="offer-right">
-
-      <h3>₹500 OFF</h3>
-
-      <p>VIVAAN500</p>
-
-    </div>
-
-  </section>
-
-  <!-- HERO BANNER -->
-
-  <section class="hero-banner">
-
-    <img
-      src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?q=80&w=1600"
-    >
-
-  </section>
-
-  <!-- PRODUCTS -->
-
-  <section class="products-section">
-
-    <h2>Featured Products</h2>
-
-    <div class="product-container">
-
-    </div>
-
-  </section>
-
-  <!-- BOTTOM NAVIGATION -->
-
-  <div class="bottom-nav">
-
-    <div class="bottom-item">
-      <i class="fa-solid fa-house"></i>
-      <p>Home</p>
-    </div>
-
-    <div class="bottom-item">
-      <i class="fa-solid fa-list"></i>
-      <p>Categories</p>
-    </div>
-
-    <div class="bottom-item">
-      <i class="fa-solid fa-heart"></i>
-      <p>Wishlist</p>
-    </div>
-
-    <div class="bottom-item">
-      <i class="fa-solid fa-cart-shopping"></i>
-      <p>Cart</p>
-    </div>
-
-  </div>
-
-  <!-- SUPABASE -->
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-
-  <script src="script.js"></script>
-
+  <!-- Scripts -->
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/home.js"></script>
 </body>
-
 </html>

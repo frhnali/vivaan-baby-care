@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>VIVAAN BABY CARE - Shopping Cart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vivaanPink: '#FF708A',
+            vivaanMint: '#9ED2C6',
+            vivaanPeach: '#FFD3B6',
+            vivaanButter: '#FFFDF9',
+            vivaanDark: '#2C3A47',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-100 flex justify-center">
+
+  <!-- Mobile Screen Container -->
+  <div class="w-full max-w-md bg-white min-h-screen relative flex flex-col shadow-2xl overflow-hidden bottom-nav-pad">
+    
+    <!-- Top Navbar with Back and Title -->
+    <header class="sticky top-0 bg-white z-40 px-4 py-3.5 border-b border-gray-50 flex items-center justify-between shadow-sm">
+      <div class="flex items-center space-x-3">
+        <button onclick="window.history.back()" class="text-vivaanDark p-1 active-scale">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <span class="text-base font-extrabold text-vivaanDark">Shopping Cart</span>
+      </div>
+      
+      <!-- Items count sub-text -->
+      <span id="cart-header-count" class="text-xs font-bold text-vivaanPink bg-pink-50 px-2.5 py-1 rounded-full">0 Items</span>
+    </header>
+
+    <!-- MAIN SCROLLABLE WRAPPER -->
+    <main id="cart-main-container" class="flex-1 overflow-y-auto p-4 space-y-4">
+      
+      <!-- List of Cart Items -->
+      <div id="cart-items-list" class="space-y-3">
+        <!-- Loader skeletons -->
+        <div class="bg-white rounded-2xl p-3 shadow-sm border border-gray-100 flex space-x-3 animate-pulse">
+          <div class="bg-gray-200 w-20 h-24 rounded-xl flex-shrink-0"></div>
+          <div class="flex-1 space-y-2 py-1">
+            <div class="h-3 bg-gray-200 rounded"></div>
+            <div class="h-3 bg-gray-200 rounded w-5/6"></div>
+            <div class="h-3 bg-gray-200 rounded w-1/3"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coupon Promo Input Section -->
+      <section id="coupon-container" class="bg-white rounded-2xl p-4 shadow-premium border border-pink-50 space-y-2.5 hidden">
+        <span class="text-xs font-extrabold text-vivaanDark uppercase tracking-wider block">Apply Promo Coupon</span>
+        <div class="flex items-center space-x-2">
+          <input type="text" id="coupon-code-input" placeholder="Enter coupon (e.g. BABY30)" 
+                 class="flex-1 px-3 py-2 bg-gray-50 border border-gray-100 rounded-xl text-xs text-vivaanDark font-mono font-bold placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-vivaanPink focus:bg-white transition-all uppercase">
+          <button id="coupon-apply-btn" class="px-4 py-2 bg-vivaanDark text-white text-xs font-bold rounded-xl active-scale">Apply</button>
+        </div>
+        <div id="coupon-feedback" class="text-[10px] font-bold hidden">
+          <!-- coupon messages show here -->
+        </div>
+      </section>
+
+      <!-- Price Breakdown Summary sheet -->
+      <section id="price-summary-container" class="bg-white rounded-2xl p-4 shadow-premium border border-pink-50 space-y-3 hidden">
+        <span class="text-xs font-extrabold text-vivaanDark uppercase tracking-wider block">Price Details</span>
+        
+        <div class="space-y-2 text-xs text-gray-500 font-medium border-b border-gray-50 pb-3">
+          <div class="flex justify-between">
+            <span>Total MRP</span>
+            <span id="summary-mrp" class="text-vivaanDark font-bold">₹0</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Product Discount</span>
+            <span id="summary-discount" class="text-vivaanMint font-bold">-₹0</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Coupon Discount</span>
+            <span id="summary-coupon" class="text-vivaanMint font-bold">-₹0</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Delivery Fee</span>
+            <span id="summary-delivery" class="text-vivaanMint font-bold">FREE</span>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center text-sm pt-1">
+          <span class="text-vivaanDark font-extrabold">Total Amount</span>
+          <span id="summary-total" class="text-base font-black text-vivaanPink">₹0</span>
+        </div>
+
+        <!-- Place Order Checkout CTA button -->
+        <button id="place-order-btn" class="w-full mt-4 py-3 bg-vivaanPink text-white text-xs font-extrabold rounded-2xl active-scale uppercase tracking-wider shadow-lg shadow-pink-100">
+          Place Order
+        </button>
+      </section>
+
+    </main>
+
+    <!-- Bottom Fixed Navigation Bar -->
+    <footer class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white border-t border-gray-100 py-2.5 px-6 flex justify-between items-center z-50 shadow-nav">
+      <a href="index.html" class="flex flex-col items-center justify-center space-y-1 text-gray-400 active-scale" id="nav-home">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+        <span class="text-[9px] font-bold">Home</span>
+      </a>
+      <a href="categories.html" class="flex flex-col items-center justify-center space-y-1 text-gray-400 active-scale" id="nav-categories">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+        </svg>
+        <span class="text-[9px] font-bold">Categories</span>
+      </a>
+      <a href="wishlist.html" class="flex flex-col items-center justify-center space-y-1 text-gray-400 active-scale relative" id="nav-wishlist">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        </svg>
+        <span class="absolute -top-1 right-2 bg-vivaanPink text-white text-[8px] font-bold px-1 py-0.25 rounded-full wishlist-badge hidden">0</span>
+        <span class="text-[9px] font-bold">Wishlist</span>
+      </a>
+      <a href="cart.html" class="flex flex-col items-center justify-center space-y-1 text-vivaanPink active-scale relative" id="nav-cart">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 100-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+        </svg>
+        <span class="absolute -top-1 right-1 bg-vivaanPink text-white text-[8px] font-bold px-1 py-0.25 rounded-full cart-badge hidden">0</span>
+        <span class="text-[9px] font-bold">Cart</span>
+      </a>
+    </footer>
+
+  </div>
+
+  <!-- Fullscreen Checkout Success celebratory Modal -->
+  <div id="checkout-success-modal" class="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300 p-4">
+    <div class="w-full max-w-sm bg-white rounded-[30px] p-6 shadow-2xl flex flex-col items-center text-center animate-slide-up overflow-hidden max-h-[85vh]">
+      <!-- Success Sparkle animation icon -->
+      <div class="w-20 h-20 bg-vivaanMint bg-opacity-10 rounded-full flex items-center justify-center text-4xl mb-4 shadow-sm">
+        🎉
+      </div>
+      <h2 class="text-lg font-black text-vivaanDark leading-tight uppercase tracking-wider">Order Placed!</h2>
+      <p class="text-xs text-vivaanMint font-extrabold mt-1">Thank you for shopping with VIVAAN CARE</p>
+      
+      <!-- Order details visual listing -->
+      <div class="w-full bg-gray-50 rounded-2xl p-4 my-4 overflow-y-auto max-h-[30vh] border border-gray-100 flex flex-col space-y-2.5">
+        <div class="flex justify-between items-center text-[10px] text-gray-400 font-bold border-b border-gray-100 pb-1.5 uppercase">
+          <span>Items Ordered</span>
+          <span>Receipt</span>
+        </div>
+        <div id="success-items-receipt" class="space-y-2">
+          <!-- dynamic bought items render here -->
+        </div>
+        <div class="border-t border-gray-100 pt-2 flex justify-between items-center text-xs">
+          <span class="text-vivaanDark font-extrabold">Amount Paid</span>
+          <span id="success-total-paid" class="text-sm font-black text-vivaanPink">₹0</span>
+        </div>
+      </div>
+
+      <div class="text-[10px] text-gray-400 font-semibold mb-6">
+        🚚 Free delivery within 3 days. Mock billing details sent to registered mail.
+      </div>
+
+      <!-- Clear cart & continue shopping -->
+      <button id="success-continue-btn" class="w-full py-3 bg-vivaanPink text-white text-xs font-extrabold rounded-2xl active-scale uppercase tracking-wider shadow-lg shadow-pink-100">
+        Continue Shopping
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast Element container -->
+  <div id="toast"></div>
+
+  <!-- Scripts -->
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

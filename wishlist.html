@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>VIVAAN BABY CARE - My Wishlist</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vivaanPink: '#FF708A',
+            vivaanMint: '#9ED2C6',
+            vivaanPeach: '#FFD3B6',
+            vivaanButter: '#FFFDF9',
+            vivaanDark: '#2C3A47',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-100 flex justify-center">
+
+  <!-- Mobile Screen Container -->
+  <div class="w-full max-w-md bg-white min-h-screen relative flex flex-col shadow-2xl overflow-hidden bottom-nav-pad">
+    
+    <!-- Top Navbar with Title -->
+    <header class="sticky top-0 bg-white z-40 px-4 py-3.5 border-b border-gray-50 flex items-center justify-between shadow-sm">
+      <div class="flex items-center space-x-3">
+        <button onclick="window.history.back()" class="text-vivaanDark p-1 active-scale">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <span class="text-base font-extrabold text-vivaanDark">My Wishlist</span>
+      </div>
+      
+      <!-- Icons (Cart) -->
+      <div class="flex items-center">
+        <a href="cart.html" class="relative text-vivaanDark active-scale p-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+          <span class="absolute -top-1 -right-1 bg-vivaanPink text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full cart-badge hidden">0</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Wishlist Catalog Grid -->
+    <main class="flex-1 overflow-y-auto p-4">
+      <div id="wishlist-products-grid" class="grid grid-cols-2 gap-4">
+        <!-- Loading Skeletons -->
+        <div class="bg-white rounded-2xl p-2.5 shadow-sm border border-gray-50 animate-pulse-slow">
+          <div class="bg-gray-100 rounded-xl h-44 mb-2"></div>
+          <div class="h-3 bg-gray-100 rounded mb-1"></div>
+          <div class="h-3 bg-gray-100 rounded w-1/2"></div>
+        </div>
+        <div class="bg-white rounded-2xl p-2.5 shadow-sm border border-gray-50 animate-pulse-slow">
+          <div class="bg-gray-100 rounded-xl h-44 mb-2"></div>
+          <div class="h-3 bg-gray-100 rounded mb-1"></div>
+          <div class="h-3 bg-gray-100 rounded w-1/2"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Bottom Fixed Navigation Bar -->
+    <footer class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white border-t border-gray-100 py-2.5 px-6 flex justify-between items-center z-50 shadow-nav">
+      <a href="index.html" class="flex flex-col items-center justify-center space-y-1 text-gray-400 active-scale" id="nav-home">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+        <span class="text-[9px] font-bold">Home</span>
+      </a>
+      <a href="categories.html" class="flex flex-col items-center justify-center space-y-1 text-gray-400 active-scale" id="nav-categories">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+        </svg>
+        <span class="text-[9px] font-bold">Categories</span>
+      </a>
+      <a href="wishlist.html" class="flex flex-col items-center justify-center space-y-1 text-vivaanPink active-scale relative" id="nav-wishlist">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+        </svg>
+        <span class="absolute -top-1 right-2 bg-vivaanPink text-white text-[8px] font-bold px-1 py-0.25 rounded-full wishlist-badge hidden">0</span>
+        <span class="text-[9px] font-bold">Wishlist</span>
+      </a>
+      <a href="cart.html" class="flex flex-col items-center justify-center space-y-1 text-gray-400 active-scale relative" id="nav-cart">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
+        <span class="absolute -top-1 right-1 bg-vivaanPink text-white text-[8px] font-bold px-1 py-0.25 rounded-full cart-badge hidden">0</span>
+        <span class="text-[9px] font-bold">Cart</span>
+      </a>
+    </footer>
+
+  </div>
+
+  <!-- Toast Element container -->
+  <div id="toast"></div>
+
+  <!-- Scripts -->
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/wishlist.js"></script>
+</body>
+</html>
