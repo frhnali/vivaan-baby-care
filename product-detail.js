@@ -46,8 +46,6 @@ document.addEventListener(
 
     fetchProductDetails(id);
 
-    setupSizeChartModal();
-
     setupPincodeChecker();
 
     setupShareButton();
